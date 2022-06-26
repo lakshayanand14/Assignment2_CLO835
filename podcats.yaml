@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: cats
+  name: catspod
+spec:
+  containers:
+  - image: 075292283984.dkr.ecr.us-east-1.amazonaws.com/cats-repo:catsimage
+    name: catslover
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

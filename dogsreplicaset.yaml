@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicas-dogs
+  namespace: dognames
+  labels:
+    app: dogs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dogs
+  template:
+    metadata:
+      labels:
+        app: dogs
+    spec:
+      containers:
+      - name: dogslover
+        image: 075292283984.dkr.ecr.us-east-1.amazonaws.com/dogs-repo:dogsimage
+        ports:
+        - containerPort: 8081

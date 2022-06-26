@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: dogs
+  name: dogspod
+spec:
+  containers:
+  - image: 075292283984.dkr.ecr.us-east-1.amazonaws.com/dogs-repo:dogsimage
+    name: dogslover
+    ports:
+    - containerPort: 8081
+      protocol: TCP
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
